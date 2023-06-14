@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import { Link } from "react-router-dom";
+import { AppRoutes } from "./Routes";
+import { GraphicEuro } from "./pages/GraphicEuro";
+
 
 interface CurrencyData {
   code: string;
@@ -10,7 +14,6 @@ interface CurrencyData {
   bid: string;
   ask: string;
 }
-
 interface CurrencyDetailsProps {
   currency?: CurrencyData; // Alteração aqui permitindo que currency seja undefined
 }
@@ -65,7 +68,7 @@ function App() {
       <div className="currency-container">
         <div className="currency-block"><CurrencyDetails currency= {currencies?.EURBRL} />
           <button className="button">
-            Gráfico EUR
+          Gráfico EUR
           </button>
         </div>
         <div className="currency-block"><CurrencyDetails currency={currencies?.USDBRL} />
