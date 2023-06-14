@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #8257e8, #000080);
+}
+
+.currency-container {
+  display: flex;
+}
+.currency-block{
+  margin: 30px;
+  padding: 50px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  text-align: center;
+  align-items: center; /* Adicione essa propriedade */
+}
+
+.title{
+  font-size: 45px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-shadow: 0 0 3px #ccc, 0 0 6px #fff, 0 0 200px #fff, 0 0 50px #000;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.currency-details{
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  color: #fff;
+}
+.currency-details-title{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 40px;
+  color: #FF0084;
+  text-shadow: 0 0 3px #ccc, 0 0 6px #fff, 0 0 200px #fff, 0 0 150px #8257e8;
+}
+.button {
+  background-color: #ff0084;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
