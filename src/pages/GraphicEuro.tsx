@@ -1,3 +1,3 @@
 export function GraphicEuro(){
-    return <h1>Cart</h1>
+    return <h1>EURO!</h1>
 }

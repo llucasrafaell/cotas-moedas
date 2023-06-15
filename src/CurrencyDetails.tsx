@@ -1,4 +1,4 @@
-interface CurrencyData {
+export interface CurrencyData {
   code: string;
   codein: string;
   name: string;
@@ -7,21 +7,27 @@ interface CurrencyData {
   bid: string;
   ask: string;
 }
-
-interface CurrencyDetailsProps {
-  currency: CurrencyData;
+export interface CurrencyDetailsProps {
+  currency?: CurrencyData;
 }
 
 export function CurrencyDetails({ currency }: CurrencyDetailsProps) {
+  if (!currency) {
+    return null;
+  }
+
   return (
-    <div className="values">
-      <p>Moeda: {currency.code}</p>
-      <p>Codein: {currency.codein}</p>
-      <p>Name: {currency.name}</p>
-      <p>Compra: {currency.bid}</p>
-      <p>Venda: {currency.ask}</p>
-      <p>High: {currency.high}</p>
-      <p>Low: {currency.low}</p>
+    <div className="currency-details">
+      <div className="currency-details-title"><p>{currency.code}</p></div>
+      <p>{currency.name}</p>
+      <p><strong>Valor de compra:</strong></p>
+      <p>R${currency.bid}</p>
+      <p><strong>Valor de venda:</strong></p>
+      <p>R${currency.ask}</p>
+      <p>
+        <strong>🔝High: </strong>R${currency.high} 
+        <strong>⬇️Low: </strong>R${currency.low}
+      </p>
     </div>
   );
 }

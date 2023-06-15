@@ -1,43 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { Link } from "react-router-dom";
-import { AppRoutes } from "./Routes";
-import { GraphicEuro } from "./pages/GraphicEuro";
-
-
-interface CurrencyData {
-  code: string;
-  codein: string;
-  name: string;
-  high: string;
-  low: string;
-  bid: string;
-  ask: string;
-}
-interface CurrencyDetailsProps {
-  currency?: CurrencyData; // Alteração aqui permitindo que currency seja undefined
-}
-
-function CurrencyDetails({ currency }: CurrencyDetailsProps) {
-  if (!currency) {
-    return null; // Lida com o caso de currency ser undefined
-  }
-
-  return (
-    <div className="currency-details">
-      <div className="currency-details-title"><p>{currency.code}</p></div>
-      <p>{currency.name}</p>
-      <p><strong>Valor de compra:</strong></p>
-      <p>R${currency.bid}</p>
-      <p><strong>Valor de venda:</strong></p>
-      <p>R${currency.ask}</p>
-      <p>
-        <strong>🔝High: </strong>R${currency.high} 
-        <strong>⬇️Low: </strong>R${currency.low}
-      </p>
-    </div>
-  );
-}
+import { CurrencyData, CurrencyDetails} from "./CurrencyDetails";
 
 function App() {
   const [currencies, setCurrencies] = useState<{ [key: string]: CurrencyData } | null>(null);
@@ -68,7 +31,7 @@ function App() {
       <div className="currency-container">
         <div className="currency-block"><CurrencyDetails currency= {currencies?.EURBRL} />
           <button className="button">
-          Gráfico EUR
+            Gráfico EUR
           </button>
         </div>
         <div className="currency-block"><CurrencyDetails currency={currencies?.USDBRL} />
