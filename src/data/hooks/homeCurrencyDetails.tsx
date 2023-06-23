@@ -12,7 +12,8 @@ export interface CurrencyDetailsProps {
 }
 
 export function CurrencyDetails({ currency }: CurrencyDetailsProps) {
-  if (!currency) {
+
+  if (!currency) { 
     return null;
   }
 
@@ -25,8 +26,8 @@ export function CurrencyDetails({ currency }: CurrencyDetailsProps) {
       <p><strong>Valor de venda:</strong></p>
       <p>R${currency.ask}</p>
       <p>
-        <strong>🔝High: </strong>R${currency.high} 
-        <strong>⬇️Low: </strong>R${currency.low}
+      <strong>🔝High: </strong>R${currency.high} 
+      <strong>⬇️Low: </strong>R${currency.low}
       </p>
     </div>
   );
