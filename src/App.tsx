@@ -1,19 +1,22 @@
-import "./App.css";
-import { useCurrencyData } from "./data/hooks/useCurrencyData";
-import CurrencyBlock from "./ui/components/CurrencyBlock";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import EuroPage from "./pages/EuroPage";
+import DolarPage from "./pages/DolarPage";
+import BtcPage from "./pages/BtcPage";
 
 function App() {
-  const currencies = useCurrencyData();
-
   return (
-    <div className="container">
-      <h1 className="title">COTAÇÃO DE MOEDAS 💰</h1>
-      <div className="currency-container">
-        <CurrencyBlock currency={currencies?.EURBRL} />
-        <CurrencyBlock currency={currencies?.USDBRL} />
-        <CurrencyBlock currency={currencies?.BTCBRL} />
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/euro" element={<EuroPage />} />
+          <Route path="/dolar" element={<DolarPage />} />
+          <Route path="/btc" element={<BtcPage />} />
+        </Routes>
+
       </div>
-    </div>
+    </Router>
   );
 }
 
