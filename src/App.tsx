@@ -14,10 +14,8 @@ function App() {
           <Route path="/dolar" element={<DolarPage />} />
           <Route path="/btc" element={<BtcPage />} />
         </Routes>
-
       </div>
     </Router>
   );
 }
-
 export default App;

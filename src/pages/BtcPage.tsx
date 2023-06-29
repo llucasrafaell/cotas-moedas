@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fetchHistoricBitcoinData, CoinsHistoricData } from "../data/services/queryHistoricData";
+import CurrencyTable from "../ui/components/CurrencyTable";
 
-const BtcPage: React.FC = () => {
-  return <h2>Página da BITCOIN em construção</h2>;
+const BitcoinPage: React.FC = () => {
+  const [bitcoinData, setBitcoinData] = useState<CoinsHistoricData[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchHistoricBitcoinData();
+      setBitcoinData(data);
+    };
+
+    fetchData();
+  }, []);
+
+  return <CurrencyTable currencyData={bitcoinData} />;
 };
 
-export default BtcPage;
+export default BitcoinPage;

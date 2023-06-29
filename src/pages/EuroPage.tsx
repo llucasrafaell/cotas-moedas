@@ -1,7 +1,20 @@
-import React from "react";
-import "../ui/styles/EuroPage.css"
+import React, { useEffect, useState } from "react";
+import { fetchHistoricEuroData, CoinsHistoricData } from "../data/services/queryHistoricData";
+import CurrencyTable from "../ui/components/CurrencyTable";
+
 const EuroPage: React.FC = () => {
-  return <h2>Página do Euro em construção</h2>;
+  const [euroData, setEuroData] = useState<CoinsHistoricData[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchHistoricEuroData();
+      setEuroData(data);
+    };
+
+    fetchData();
+  }, []);
+
+  return <CurrencyTable currencyData={euroData} />;
 };
 
 export default EuroPage;

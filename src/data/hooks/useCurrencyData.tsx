@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { queryAPI } from "../services/queryAPI";
+import { queryAPI } from "../services/queryCurrencyData";
 import { CurrencyData} from "./homeCurrencyDetails";
 
 export const useCurrencyData = () => {
